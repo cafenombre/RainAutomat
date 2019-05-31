@@ -22,6 +22,7 @@ namespace RainCustomAddons.Entities
         const int defaultTextSize = 25;
         const Align defaultAlign = Align.RIGHT;
         const string defaultEffect = "SHADOW";
+        const int defaultGapSize = 55;
 
         //Variables 
         public string Name { get; set; }
@@ -37,6 +38,7 @@ namespace RainCustomAddons.Entities
         public Align align { get; set; }
         //https://docs.rainmeter.net/manual/meters/string/inline/
         public string stringEffect { get; set; }
+        public int gapSize { get; set; }
 
         //Constructors
         public Addon(string name)
@@ -53,6 +55,7 @@ namespace RainCustomAddons.Entities
             this.blocs = new List<Bloc>();
             this.align = defaultAlign;
             this.stringEffect = defaultEffect;
+            this.gapSize = defaultGapSize;
         }
 
         public Addon(string name, string color, string colorHover, string font, int textSize, int textSizeHover, int Width, int Height, Align align, string stringEffect)
@@ -69,6 +72,7 @@ namespace RainCustomAddons.Entities
             this.blocs = new List<Bloc>();
             this.align = align;
             this.stringEffect = stringEffect;
+            this.gapSize = defaultGapSize;
         }
     }
 }

@@ -15,26 +15,28 @@ namespace RainCustomAddons
             Addon main = new Addon("ListMenu");
 
             //Configuration
-            main.TextSizeOver = 27;
+            main.TextSizeOver = 55;
+            main.TextSizeDemo = 50;
+            main.TextColor = "000000";
             main.TextColorHover = "eeeeee";
+            main.gapSize = 70; // Default for 25/30 font is 55.
+            
             main.stringEffect = "BORDER";
-            //main.TextFont = "gobold blocky";
-            main.TextFont = "lucky first";
-            main.TextFont = "MOON GET!";
-            main.TextFont = "MUNICH";
-            //main.TextFont = "bluefish demo";
+            main.TextFont = "Londoner";
 
             //Insertion of multiple addresses blocs
             main.blocs.Add(new Bloc("SlackTer Pack", new List<string>() { "https://www.facebook.com/", "http://youtube.com/", "https://mail.google.com/mail/u/0/", "https://www.udemy.com/" }));
 
             //Insertion of the blocs
-            main.blocs.Add(new Bloc("Coeur Caillou", "D:/Blizzard/Hearthstone/Hearthstone.exe")); //Warning for the path put / instead of \
-            main.blocs.Add(new Bloc("Photoshop", "D:/CC/Adobe Photoshop CC 2018/Photoshop.exe"));
-            main.blocs.Add(new Bloc("Gwent", new List<string>() { "D:/GOG Games/Gwent/Gwent.exe", "D:/Things/GwentUp/GwentUp.exe" })); 
-            main.blocs.Add(new Bloc("La league", "D:/RITO/LeagueClient.exe"));
-            main.blocs.Add(new Bloc("Messy folder", "D:/things"));
-            main.blocs.Add(new Bloc("Skyrim", "D:/SteamLibrary/steamapps/common/Skyrim Special Edition/skse64_loader.exe"));
-            main.blocs.Add(new Bloc("Tropico", "D:/SteamLibrary/steamapps/common/Tropico 5/Tropico5Steam.exe"));
+            //Warning for the path put / instead of \
+            main.blocs.Add(new Bloc("Unreal Engine", "C:/Program Files/Epic Games/UE_4.22/Engine/Binaries/Win64/UE4Editor.exe"));
+            main.blocs.Add(new Bloc("Gwent", "C:/Program Files (x86)/GOG Galaxy/Games/Gwent/Gwent.exe"));
+            main.blocs.Add(new Bloc("Things", "E:/things"));
+            main.blocs.Add(new Bloc("Skyrim", "G:/SteamLibrary/steamapps/common/Skyrim Special Edition/skse64_loader.exe"));
+            main.blocs.Add(new Bloc("Tropico", "G:/SteamLibrary/steamapps/common/Tropico 6/Tropico6.exe"));
+            main.blocs.Add(new Bloc("Metro", "com.epicgames.launcher://apps/Snapdragon?action=launch&silent=true"));
+            main.blocs.Add(new Bloc("Visual Studio", "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/devenv.exe"));
+            main.blocs.Add(new Bloc("Visual Code", new List<string>() { "C:/Users/Megaport/AppData/Local/Programs/Microsoft VS Code/Code.exe", "C:/xampp/xampp-control.exe" }));
 
 
             //Execution
@@ -80,7 +82,7 @@ namespace RainCustomAddons
                 file += "[" + usename + "Passive]";
                 file += "\nMeter=STRING"
                     + "\nx =#Left# "
-                    + "\ny = 55r"
+                    + "\ny = " + main.gapSize + "r"
                     + "\nSolidColor = 0,0,0,1"
                     + "\nText = " + bloc.name
                     + "\nFontFace = " + main.TextFont
