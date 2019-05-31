@@ -5,3 +5,10 @@ C:\Users\pgx-j\source\repos\RainCustomAddons\RainCustomAddons\obj\Debug\RainCust
 C:\Users\pgx-j\source\repos\RainCustomAddons\RainCustomAddons\obj\Debug\RainCustomAddons.csproj.CoreCompileInputs.cache
 C:\Users\pgx-j\source\repos\RainCustomAddons\RainCustomAddons\obj\Debug\RainCustomAddons.exe
 C:\Users\pgx-j\source\repos\RainCustomAddons\RainCustomAddons\obj\Debug\RainCustomAddons.pdb
+C:\Users\Megaport\Source\Repos\RainAutomat\RainCustomAddons\bin\Debug\RainCustomAddons.exe.config
+C:\Users\Megaport\Source\Repos\RainAutomat\RainCustomAddons\bin\Debug\RainCustomAddons.exe
+C:\Users\Megaport\Source\Repos\RainAutomat\RainCustomAddons\bin\Debug\RainCustomAddons.pdb
+C:\Users\Megaport\Source\Repos\RainAutomat\RainCustomAddons\obj\Debug\RainCustomAddons.csprojAssemblyReference.cache
+C:\Users\Megaport\Source\Repos\RainAutomat\RainCustomAddons\obj\Debug\RainCustomAddons.csproj.CoreCompileInputs.cache
+C:\Users\Megaport\Source\Repos\RainAutomat\RainCustomAddons\obj\Debug\RainCustomAddons.exe
+C:\Users\Megaport\Source\Repos\RainAutomat\RainCustomAddons\obj\Debug\RainCustomAddons.pdb

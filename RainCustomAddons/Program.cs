@@ -110,8 +110,133 @@ namespace RainCustomAddons
                     + "\nMouseLeaveAction = !Execute[!ShowMeter " + usename + "Passive][!HideMeter " + usename + "Active][!Update]";
                 
             }
-            System.IO.File.WriteAllText(@"C:\Users\pgx-j\Documents\Rainmeter\Skins\LeSkin\"+main.Name+".ini", file);
+            System.IO.File.WriteAllText(@"C:\Users\Megaport\Documents\Rainmeter\Skins\LeSkin\" + main.Name+".ini", file);
             return file;
         }
     }
 }
+
+/*[NavRecycle] -------------- INCLUDE EXTERNAL FILES TO STAY CLEAN ------------
+Meter=Image
+ImageName=#@#Images\_Assets\recycle.png
+X=(-(#BarHeight#+4))r
+Y=r
+W=#BarHeight#
+H=#BarHeight#
+ImageAlpha=(Clamp(([BaseAnimation]-(#SCREENAREAWIDTH#-255)),0,255))
+SolidColor=0,0,0,0
+DynamicVariables=1
+LeftMouseUpAction=[shell:::{645FF040-5081-101B-9F08-00AA002F954E}]#UnloadSkin#
+MouseOverAction=[!SetOption #CURRENTSECTION# SolidColor "0,0,0,128"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# SolidColor "0,0,0,0"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+
+[GodmodeFolder]
+Meter=Image
+ImageName=#@#Images\_Assets\gfolder.png
+X=(-(#BarHeight#+4))r
+Y=r
+W=#BarHeight#
+H=#BarHeight#
+ImageAlpha=(Clamp(([BaseAnimation]-(#SCREENAREAWIDTH#-255)),0,255))
+SolidColor=0,0,0,0
+DynamicVariables=1
+LeftMouseUpAction=["#@#\Includes\godmode.{ED7BA470-8E54-465E-825C-99712043E01C}"]#UnloadSkin#
+MouseOverAction=[!SetOption #CURRENTSECTION# SolidColor "0,0,0,128"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# SolidColor "0,0,0,0"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+
+[NavThisPC]
+Meter=Image
+ImageName=#@#Images\_Assets\thispc.png
+X=(-(#BarHeight#+4))r
+Y=r
+W=#BarHeight#
+H=#BarHeight#
+ImageAlpha=(Clamp(([BaseAnimation]-(#SCREENAREAWIDTH#-255)),0,255))
+SolidColor=0,0,0,0
+DynamicVariables=1
+LeftMouseUpAction=[shell:::{20D04FE0-3AEA-1069-A2D8-08002B30309D}]#UnloadSkin#
+MouseOverAction=[!SetOption #CURRENTSECTION# SolidColor "0,0,0,128"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# SolidColor "0,0,0,0"][!UpdateMeter #CURRENTSECTION#][!Redraw].[TaskView]
+Meter=Image
+ImageName=#@#Images\_Assets\taskview.png
+X=4R
+Y=r
+W=#BarHeight#
+H=#BarHeight#
+ImageAlpha=(Clamp(([BaseAnimation]),0,255))
+SolidColor=0,0,0,0
+DynamicVariables=1
+LeftMouseUpAction=[shell:::{3080F90E-D7AD-11D9-BD98-0000947B0257}]#UnloadSkin#
+MouseOverAction=[!SetOption #CURRENTSECTION# SolidColor "0,0,0,128"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# SolidColor "0,0,0,0"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+[TaskMgr]
+Meter=Image
+ImageName=#@#Images\_Assets\task.png
+X=4R
+Y=r
+W=#BarHeight#
+H=#BarHeight#
+ImageAlpha=(Clamp(([BaseAnimation]),0,255))
+SolidColor=0,0,0,0
+DynamicVariables=1
+LeftMouseUpAction=[taskmgr.exe]#UnloadSkin#
+MouseOverAction=[!SetOption #CURRENTSECTION# SolidColor "0,0,0,128"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# SolidColor "0,0,0,0"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+
+[Time]
+Meter=String
+MeasureName=mTimeShort
+X=((#SCREENAREAWIDTH#)*0.925)
+Y=(#BottomBarYPos#+(#BarHeight#/6))
+FontFace=#BarFont#
+FontSize=#BarFontSize#
+FontColor=255,255,255,(Clamp(([BaseAnimation]-(#SCREENAREAWIDTH#-255)),0,255))
+StringAlign=Center
+DynamicVariables=1
+AntiAlias=1
+
+
+    -------------- BCK ANIM -------------
+[LauncherAnimation]
+Measure=Calc 
+Disabled=1
+Formula=(LauncherAnimation-((LauncherAnimation-(#SCREENAREAHEIGHT#/1.5))/#AnimationFactor#))
+IfEqualValue=(#SCREENAREAHEIGHT#/1.5)-1
+IfEqualAction=[!PauseMeasure #CURRENTSECTION#]
+DynamicVariables=1
+
+[Group1Launcher1Background]
+Meter=Image
+ImageName=#@#Images\_Assets\empty.png
+X=#XPos10#
+Y=#LauncherYPos#
+W=#LauncherWidth#
+H=(Clamp(([LauncherAnimation]),0,#LauncherHeight#))
+ImageAlpha=255
+DynamicVariables=1
+LeftMouseUpAction=#Group1Launcher1Action##UnloadSkin#
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageName "#@#Images\Mouseover\#Group1Launcher1BG#][!UpdateMeter #CURRENTSECTION#]#Indicator1On#[!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageName "#@#Images\_Assets\empty.png"][!UpdateMeter #CURRENTSECTION#]#Indicator1Off#[!Redraw]
+
+[Group1Launcher1Icon]
+Meter=Image
+ImageName=#@#Images\Icons\#Group1Launcher1Icon#
+X=#LauncherIconAndNameXpos#r
+Y=(Clamp(([LauncherAnimation]-(#SCREENAREAHEIGHT#*0.12)),(((#SCREENAREAHEIGHT#)-#LauncherHeight#)/1.8),#LauncherIconYpos#))
+W=#LauncherIconSize#
+H=#LauncherIconSize#
+ImageAlpha=([LauncherAnimation])-((#SCREENAREAHEIGHT#/1.5)-275)
+DynamicVariables=1
+
+[Group1Launcher1Name]
+Meter=String
+X=#LauncherIconAndNameXpos#r
+Y=#LauncherNameYpos#r
+FontFace=#LauncherFont#
+FontSize=#LauncherFontSize#
+FontColor=255,255,255,(Clamp(([LauncherAnimation])-((#SCREENAREAHEIGHT#/1.5)-275),0,255))
+StringAlign=Center
+Text=#Group1Launcher1Name#
+DynamicVariables=1
+AntiAlias=1
+*/
