@@ -35,6 +35,7 @@ namespace RainCustomAddons.Entities
         public int? Width { get; set; }
         public int? Height { get; set; }
         public List<Bloc> blocs { get; set; }
+        public List<SysBloc> sysBlocs { get; set; }
         public Align align { get; set; }
         //https://docs.rainmeter.net/manual/meters/string/inline/
         public string stringEffect { get; set; }
@@ -53,6 +54,7 @@ namespace RainCustomAddons.Entities
             this.Width = null;
             this.Height = null;
             this.blocs = new List<Bloc>();
+            this.sysBlocs = new List<SysBloc>();
             this.align = defaultAlign;
             this.stringEffect = defaultEffect;
             this.gapSize = defaultGapSize;
@@ -70,6 +72,7 @@ namespace RainCustomAddons.Entities
             this.Width = Width;
             this.Height = Height;
             this.blocs = new List<Bloc>();
+            this.sysBlocs = new List<SysBloc>();
             this.align = align;
             this.stringEffect = stringEffect;
             this.gapSize = defaultGapSize;

@@ -17,15 +17,15 @@ namespace RainCustomAddons
             //Configuration
             main.TextSizeOver = 55;
             main.TextSizeDemo = 50;
-            main.TextColor = "000000";
-            main.TextColorHover = "eeeeee";
+            main.TextColor = "e0e0e0";
+            main.TextColorHover = "FFF";
             main.gapSize = 70; // Default for 25/30 font is 55.
             
-            main.stringEffect = "BORDER";
-            main.TextFont = "Londoner";
+            main.stringEffect = "BORDER"; 
+            main.TextFont = "Londoner"; //Kiona nice basic one, londoner script
 
             //Insertion of multiple addresses blocs
-            main.blocs.Add(new Bloc("SlackTer Pack", new List<string>() { "https://www.facebook.com/", "http://youtube.com/", "https://mail.google.com/mail/u/0/", "https://www.udemy.com/" }));
+            main.blocs.Add(new Bloc("Slackter Pack", new List<string>() { "https://www.facebook.com/", "http://youtube.com/", "https://mail.google.com/mail/u/0/", "https://www.udemy.com/" }));
 
             //Insertion of the blocs
             //Warning for the path put / instead of \
@@ -35,8 +35,17 @@ namespace RainCustomAddons
             main.blocs.Add(new Bloc("Skyrim", "G:/SteamLibrary/steamapps/common/Skyrim Special Edition/skse64_loader.exe"));
             main.blocs.Add(new Bloc("Tropico", "G:/SteamLibrary/steamapps/common/Tropico 6/Tropico6.exe"));
             main.blocs.Add(new Bloc("Metro", "com.epicgames.launcher://apps/Snapdragon?action=launch&silent=true"));
+            main.blocs.Add(new Bloc("Legolegende", "ironForlif", "eeeeee", "f48fb1", "G:/Games/LOL/LeagueClient.exe"));    
             main.blocs.Add(new Bloc("Visual Studio", "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/devenv.exe"));
             main.blocs.Add(new Bloc("Visual Code", new List<string>() { "C:/Users/Megaport/AppData/Local/Programs/Microsoft VS Code/Code.exe", "C:/xampp/xampp-control.exe" }));
+
+            main.sysBlocs.Add(new SysBloc(SysBloc.SysActions.SHUT));
+            main.sysBlocs.First().width = 50;
+            main.sysBlocs.First().height = 50;
+
+            main.sysBlocs.Add(new SysBloc(SysBloc.SysActions.THIS_PC));
+            main.sysBlocs.Add(new SysBloc(SysBloc.SysActions.TASK));
+            main.sysBlocs.Add(new SysBloc(SysBloc.SysActions.BIN));
 
 
             //Execution
@@ -49,6 +58,8 @@ namespace RainCustomAddons
         static string ConvertObjectIntoINI(Addon main)
         {
             string file = "[Rainmeter]\nUpdate = 1000\nBackgroundMode=1\n\n";
+
+            //file+="[MeterButtonShutDown]\nMeter = IMAGE \n X = 63 \n Y = 10 \n W = 20 \n H = 20 \n LeftMouseDownAction =% systemroot %/system32/shutdown.exe - s - t 00";
 
             //Variables 
             file += "[Variables]"
@@ -65,6 +76,31 @@ namespace RainCustomAddons
             if (main.Height != null)
                 file += "\nHeight = " + main.Height;
 
+            //--------------------- CONFIG SYS BLOC --------------------//
+            int sysblocIterations = 0;
+            foreach(SysBloc sb in main.sysBlocs)
+            {
+                string x = (sysblocIterations == 0) ? "(#Left#-60)r" : "-75r";
+                sysblocIterations++;
+
+                file += "\n\n; =========== SysBloc " + sb.name + " ===========\n\n";
+
+                //SysBlocName
+                file += "[SysBloc_"+sb.name+"]";
+                //Config bloc
+                file += "\nMeter=Image"
+                    + "\nImageName ="+ sb.imglink
+                    + "\nx = " + x
+                    + "\ny = r"
+                    + "\nSolidColor = 0,0,0,0" 
+                    + "\nDynamicVariables = 1"
+                    + "\nW = " + sb.width
+                    + "\nH = " + sb.height
+                    + "\nAntiAlias = 1"
+                    + "\nLeftMouseUpAction = " + sb.sysActionString;
+            }
+            
+            //--------------------------CONFIG SIMPLE BLOC ---------------//
             foreach(Bloc bloc in main.blocs)
             {
                 file += "\n\n; =========== Bloc"+bloc.name+" ===========\n\n";
