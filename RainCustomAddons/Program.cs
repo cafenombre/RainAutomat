@@ -35,6 +35,7 @@ namespace RainCustomAddons
             main.blocs.Add(new Bloc("Skyrim", "G:/SteamLibrary/steamapps/common/Skyrim Special Edition/skse64_loader.exe"));
             main.blocs.Add(new Bloc("Tropico", "G:/SteamLibrary/steamapps/common/Tropico 6/Tropico6.exe"));
             main.blocs.Add(new Bloc("Metro", "com.epicgames.launcher://apps/Snapdragon?action=launch&silent=true"));
+            main.blocs.Add(new Bloc("Minecraft", "Reeeeeee", "eeeeee", "43a047 ", "E:/Things/Shiginima Launcher SE v4200.exe"));    
             main.blocs.Add(new Bloc("Legolegende", "ironForlif", "eeeeee", "f48fb1", "G:/Games/LOL/LeagueClient.exe"));    
             main.blocs.Add(new Bloc("Visual Studio", "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/devenv.exe"));
             main.blocs.Add(new Bloc("Visual Code", new List<string>() { "C:/Users/Megaport/AppData/Local/Programs/Microsoft VS Code/Code.exe", "C:/xampp/xampp-control.exe" }));
