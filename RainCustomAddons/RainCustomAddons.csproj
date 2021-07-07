@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Entities\Addon.cs" />
     <Compile Include="Entities\Bloc.cs" />
+    <Compile Include="Entities\Margin.cs" />
     <Compile Include="Entities\SysBloc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
